@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Data Visualization</title>
+</head>
+<body>
+    <h2>Seleccione un País y Visualice los Datos</h2>
+    <label for="country-select">Selecciona un país:</label>
+    <select id="country-select" name="country">
+        <option value="">-- Seleccione un país --</option>
+        {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+        {% endfor %}
+    </select>
+
+    <div id="plot-area" style="width: 100%; height: 600px;"></div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </select>
+    <div id="plot-area"></div>
+    <h2>Seleccione un País y Visualice los Datos</h2>
+    <label for="country-select">Selecciona un país:</label>
+    <select id="country-select" name="country">
+        <option value="">-- Seleccione un país --</option>
+        {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+        {% endfor %}
+    </select>
+
+    <div id="plot-area" style="width: 100%; height: 600px;"></div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </select>
+    <div id="plot-area"></div>
+    <h2>Seleccione un País y Visualice los Datos</h2>
+    <label for="country-select">Selecciona un país:</label>
+    <select id="country-select" name="country">
+        <option value="">-- Seleccione un país --</option>
+        {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+        {% endfor %}
+    </select>
+
+    <div id="plot-area" style="width: 100%; height: 600px;"></div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </select>
+    <div id="plot-area"></div>
+    <h1>Country Data Visualization</h1>
+    <!-- Dropdown and plot area will be added here later -->
+    <script>
+        var countrySelect = document.getElementById('country-select');
+        var plotArea = document.getElementById('plot-area');
+
+        // Function to fetch and display the plot
+        function updatePlot(country) {
+            fetch('/plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ country: country })
+            })
+            .then(response => response.json())
+            .then(graphJson => {
+                // Parse the JSON string into a Plotly figure object
+                var fig = JSON.parse(graphJson);
+                // Use Plotly.react to update the existing plot or create a new one
+                Plotly.react(plotArea, fig.data, fig.layout);
+            })
+            .catch(error => {
+                console.error('Error fetching the plot data:', error);
+                plotArea.innerHTML = '<p>Error loading plot.</p>';
+            });
+        }
+
+        // Event listener for dropdown changes
+        countrySelect.addEventListener('change', function() {
+            var selectedCountry = this.value;
+            updatePlot(selectedCountry);
+        });
+
+        // Initial plot load when the page loads
+        // Trigger the plot update with the initially selected value (or empty for no highlight)
+        updatePlot(countrySelect.value);
+    </script>
+    <script>
+        var countrySelect = document.getElementById('country-select');
+        var plotArea = document.getElementById('plot-area');
+
+        // Function to fetch and display the plot
+        function updatePlot(country) {
+            fetch('/plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ country: country })
+            })
+            .then(response => response.json())
+            .then(graphJson => {
+                // Parse the JSON string into a Plotly figure object
+                var fig = JSON.parse(graphJson);
+                // Use Plotly.react to update the existing plot or create a new one
+                Plotly.react(plotArea, fig.data, fig.layout);
+            })
+            .catch(error => {
+                console.error('Error fetching the plot data:', error);
+                plotArea.innerHTML = '<p>Error loading plot.</p>';
+            });
+        }
+
+        // Event listener for dropdown changes
+        countrySelect.addEventListener('change', function() {
+            var selectedCountry = this.value;
+            updatePlot(selectedCountry);
+        });
+
+        // Initial plot load when the page loads
+        # Trigger the plot update with the initially selected value (or empty for no highlight)
+        updatePlot(countrySelect.value);
+    </script>
+    <script>
+        var countrySelect = document.getElementById('country-select');
+        var plotArea = document.getElementById('plot-area');
+
+        // Function to fetch and display the plot
+        function updatePlot(country) {
+            fetch('/plot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ country: country })
+            })
+            .then(response => response.json())
+            .then(graphJson => {
+                // Parse the JSON string into a Plotly figure object
+                var fig = JSON.parse(graphJson);
+                // Use Plotly.react to update the existing plot or create a new one
+                Plotly.react(plotArea, fig.data, fig.layout);
+            })
+            .catch(error => {
+                console.error('Error fetching the plot data:', error);
+                plotArea.innerHTML = '<p>Error loading plot.</p>';
+            });
+        }
+
+        // Event listener for dropdown changes
+        countrySelect.addEventListener('change', function() {
+            var selectedCountry = this.value;
+            updatePlot(selectedCountry);
+        });
+
+        // Initial plot load when the page loads
+        # Trigger the plot update with the initially selected value (or empty for no highlight)
+        updatePlot(countrySelect.value);
+    </script>
+</body>
+</html>
